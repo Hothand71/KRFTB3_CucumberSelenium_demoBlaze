@@ -11,8 +11,7 @@ import org.junit.runner.RunWith;
         },
         features = "@target/rerun.txt",
         glue = "com/demoblaze/step_defs",
-        dryRun = false,
-        tags = ""
+        dryRun = false
 )
 
 
