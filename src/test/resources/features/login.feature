@@ -32,9 +32,10 @@ Feature: Login Test- The User Should be able to log in with valid credentials
     When The user is enters with "<username>" and "<password>" credentials
     Then The user verify that should be invalid credentials "<message>"
     Examples:
-      | username      | password    | message                                |
-      |               |             | Please fill out Username and Password. |
-      | GeraltOfRivia |             | Please fill out Username and Password. |
-      |               | Geralt1234. | Please fill out Username and Password. |
-      | GeraltOfRivia | 1234563     | Wrong password.                        |
-      | GeraltOf      | Geralt1234. | User does not exist.                   |
+      | username      | password        | message                                |
+      |               |                 | Please fill out Username and Password. |
+      | GeraltOfRivia |                 | Please fill out Username and Password. |
+      |               | Geralt1234.     | Please fill out Username and Password. |
+      | GeraltOfRivia | invalidPassword | Wrong password.                        |
+      | GeraltOf      | Geralt1234.     | User does not exist.                   |
+      | GeraltOf      | invalidPassword | User does not exist.                   |

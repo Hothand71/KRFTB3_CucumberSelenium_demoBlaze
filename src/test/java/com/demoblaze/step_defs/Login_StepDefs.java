@@ -13,7 +13,10 @@ import org.apache.commons.logging.Log;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Map;
 
@@ -53,11 +56,13 @@ public class Login_StepDefs {
 
     @Then("The user verify that should be invalid credentials {string}")
     public void theUserVerifyThatShouldBeInvalidCredentials(String expectedMessage) {
-        BrowserUtils.waitFor(1);
+        WebDriverWait wait=new WebDriverWait(Driver.get(),4);
+        wait.until(ExpectedConditions.alertIsPresent());
         Alert alert=Driver.get().switchTo().alert();
         String actualMessage = alert.getText();
-        System.out.println("actualMessage = " + actualMessage);
+        alert.accept();
         Assert.assertEquals(expectedMessage,actualMessage);
 
     }
+
 }
